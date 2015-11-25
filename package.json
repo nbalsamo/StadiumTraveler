@@ -1,29 +1,29 @@
 {
-    "name": "stadiumtraveler",
-    "version": "1.0.0",
-    "description": "stadium traveler web app",
-    "main": "index.html",
-    "scripts": {
-        "start": "gulp build"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "browser-sync": "^2.9.3",
-        "gulp": "^3.9.0",
-        "gulp-webserver": "^0.9.1"
-    },
-    "dependencies": {
-        "gulp": "^3.9.0",
-        "gulp-autoprefixer": "^3.0.1",
-        "gulp-cssmin": "^0.1.7",
-        "gulp-dest": "^0.2.2",
-        "gulp-inject": "^2.2.0",
-        "gulp-less": "^3.0.3",
-        "gulp-load-plugins": "^0.10.0",
-        "gulp-plumber": "^1.0.1",
-        "gulp-sass": "^2.0.4",
-        "gulp-util": "^3.0.6",
-        "rimraf": "^2.4.3"
-    }
+  "name": "stadiumtraveler",
+  "version": "1.0.0",
+  "description": "stadium traveler web app",
+  "main": "index.html",
+  "scripts": {
+    "start": "gulp build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.9.3",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-dest": "^0.2.2",
+    "gulp-inject": "^2.2.0",
+    "gulp-less": "^3.0.3",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.4",
+    "gulp-util": "^3.0.6",
+    "rimraf": "^2.4.3"
+  }
 }

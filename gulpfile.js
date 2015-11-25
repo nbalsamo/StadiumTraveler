@@ -175,6 +175,10 @@ gulp.task('webServer', function() {
             path: '/'
         }));
 });
+
+gulp.task('test', function() {
+    console.log('this is a test');
+});
 // Default task
 //gulp.task('watch', function() {
 //   gulp.watch('assets/js/libs/**/*.js', ['squish-jquery']);
@@ -182,4 +186,5 @@ gulp.task('webServer', function() {
 //    gulp.watch('assets/less/**/*.less', ['build-css']);
 //});
 
-gulp.task('build', ['webServer', 'inject', ]);
+gulp.task('build', ['webServer', 'inject']);
+gulp.task('buildProd', ['inject']);
