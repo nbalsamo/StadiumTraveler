@@ -1,0 +1,17 @@
+<ul ng-repeat = "mark in markers">
+	<li> 
+		<div class="view">
+			<label ng-click="panTo(mark)">{{mark.title}}</label>
+			<span class="icon-bin" ng-click="remove($index)">&#xe9ac;</span>
+			<br>
+			<label class="datesLable" for="datepicker">Month</label>
+			<input name="dateInput" type="text" class="datePicker" ng-model="dateInput" jqdatepicker required>
+			<ul ng-repeat = "game in mark.schedule">
+				<li>
+					<label>{{game.opponent}} {{game.date}}</label>
+					<span class="icon-checkmark" ng-click="populateSurroundingMap(game)">&#xea10;</span>
+				</li>
+			</ul>
+		</div>
+	</li>
+</ul>
