@@ -2,8 +2,10 @@
     'use strict';
     var app = angular.module("Stadium", ['ui.bootstrap', 'usMapDirective', 'datePickerDirective', 'ui.router']);
 
+    //var baseAPIUrl =  'http://localhost:3000';
+    var baseAPIUrl = 'https://stadiumtraveler-api.herokuapp.com'
     app.constant("appSettings", {
-        baseAPIUrl: "http://localhost:3000"
+        baseAPIUrl: baseAPIUrl
     });
 
     app.config(['$stateProvider',
