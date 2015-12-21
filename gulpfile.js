@@ -52,6 +52,9 @@ var paths = {
         './assets/css/fonts/glyphicons-halflings-regular.ttf',
         './assets/css/fonts/glyphicons-halflings-regular.woff',
         './assets/css/fonts/glyphicons-halflings-regular.woff2',
+    ],
+    images: [
+        './assets/images/home_background.jpg',
     ]
 };
 
@@ -63,7 +66,7 @@ gulp.task('clean', function(cb) {
     rimraf(buildTarget, cb);
 });
 
-gulp.task('copy', ['copy-index', 'copy-startup', 'copy-views', 'copy-services', 'copy-thirdpartyjs', 'copy-shared', 'copy-thirdpartycss', 'copy-fonts'], function() {
+gulp.task('copy', ['copy-index', 'copy-startup', 'copy-views', 'copy-services', 'copy-thirdpartyjs', 'copy-shared', 'copy-thirdpartycss', 'copy-fonts', 'copy-images'], function() {
     return; //place holder to run all of the copies
 });
 
@@ -110,6 +113,11 @@ gulp.task('copy-thirdpartycss', function() {
 gulp.task('copy-fonts', function() {
     return gulp.src(paths.fonts)
         .pipe(gulp.dest(buildTarget + '/assets/fonts'));
+});
+
+gulp.task('copy-images', function() {
+    return gulp.src(paths.images)
+        .pipe(gulp.dest(buildTarget + '/assets/images'));
 });
 
 gulp.task('build-css', function() {
