@@ -1,0 +1,50 @@
+<div id="container">
+    <button type="button" class="btn btn-default" ng-click="goHome()">Go Home</button>
+    <button type="button" class="btn btn-default" ng-click="goToMap()">View Map</button>
+    <div class="row" ng-show="surroundingSchedule">
+        <div class="col-md-12">
+            <tabset justified="true">
+                <tab heading="NHL">
+                    <ul ng-repeat="nhl in surroundingSchedule.nhlGames">
+                        <li>
+                            <label>{{nhl.HomeTeamName}}</label>
+                            <label>{{nhl.AwayTeamName}}</label>
+                            <label>{{nhl.Date}}</label>
+                            <span class="icon-checkmark">&#xea10;</span>
+                        </li>
+                    </ul>
+                </tab>
+                <tab heading="NBA">
+                    <ul ng-repeat="nba in surroundingSchedule.nbaGames">
+                        <li>
+                            <label>{{nba.HomeTeamName}}</label>
+                            <label>{{nba.AwayTeamName}}</label>
+                            <label>{{nba.Date}}</label>
+                            <span class="icon-checkmark">&#xea10;</span>
+                        </li>
+                    </ul>
+                </tab>
+                <tab heading="MLB">
+                    <ul ng-repeat="mlb in surroundingSchedule.mlbgames">
+                        <li>
+                            <label>{{mlb.HomeTeamName}}</label>
+                            <label>{{mlb.AwayTeamName}}</label>
+                            <label>{{mlb.Date}}</label>
+                            <span class="icon-checkmark">&#xea10;</span>
+                        </li>
+                    </ul>
+                </tab>
+                <tab heading="NFL">
+                    <ul ng-repeat="nfl in surroundingSchedule.nflGames">
+                        <li>
+                            <label>{{nfl.HomeTeamName}}</label>
+                            <label>{{nfl.AwayTeamName}}</label>
+                            <label>{{nfl.Date}}</label>
+                            <span class="icon-checkmark">&#xea10;</span>
+                        </li>
+                    </ul>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</div>

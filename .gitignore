@@ -29,4 +29,4 @@ node_modules
 # build 
 stadiumTraveler.sublime-workspace
 
-build/*
+#DONT ADD BUILD BECAUSE IT's NEEDED FOR HEROKU

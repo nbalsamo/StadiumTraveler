@@ -1,0 +1,17 @@
+<div class="home-background">
+    <div class="row vertical-center">
+        <div class="col-lg-6">
+            <div class="search-container">
+                <h2 class="text-center title">Stadium Traveler</h2>
+                <form ng-submit="searchTeam() ">
+                    <p class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter Team Name" ng-model="searchedTeam" typeahead="team for team in teams | filter:$viewValue | limitTo:8">
+                        <span class="input-group-btn ">
+                            <button type="submit " class="btn btn-default "><i class="glyphicon glyphicon-search "></i></button>
+                        </span>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
