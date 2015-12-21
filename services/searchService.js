@@ -28,7 +28,23 @@ angular.module('Stadium').service('SearchService', ['appSettings', '$http', '$q'
                 deferred.resolve(response);
             })
             .error(function(error) {
-                console.log(response);
+                deferred.reject(error);
+            });
+
+        return deferred.promise;
+    }
+
+    this.getAllTeams = function() {
+        var deferred = $q.defer();
+
+        $http({
+                method: 'GET',
+                url: appSettings.baseAPIUrl + "/search/teams"
+            })
+            .success(function(response) {
+                deferred.resolve(response);
+            })
+            .error(function(error) {
                 deferred.reject(error);
             });
 
