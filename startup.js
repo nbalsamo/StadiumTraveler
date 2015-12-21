@@ -13,7 +13,7 @@
                 templateUrl: 'views/home.html',
                 controller: 'HomeController'
             }).state('form', {
-                url: '/{team:int}/form',
+                url: '/{teamID:int}/form',
                 templateUrl: 'views/form.html',
                 controller: 'FormController'
             }).state('surrounding', {

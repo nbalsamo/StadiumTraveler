@@ -27,3 +27,4 @@ build/Release
 node_modules
 # Including the build folder so it can get deployed and stuff
 # build 
+stadiumTraveler.sublime-workspace

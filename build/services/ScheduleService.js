@@ -1,4 +1,4 @@
-angular.module('Stadium').service('ScheduleService', ['appSettings','$http', '$q', function (appSettings, $http, $q) {
+angular.module('Stadium').service('ScheduleService', ['appSettings', '$http', '$q', function(appSettings, $http, $q) {
 
     /*var service = {};
 
@@ -37,40 +37,39 @@ angular.module('Stadium').service('ScheduleService', ['appSettings','$http', '$q
         return surroundingGames;
     }*/
 
-    this.getSchedule = function (ID) {
+    this.getSchedule = function(id) {
         var deferred = $q.defer();
         $http({
-            method: 'GET',
-            url: appSettings.baseAPIUrl + "/schedules?ID=" + ID
-        })
-        .success(function (response) {
-            console.log(response);
-            deferred.resolve(response);
-        })
-        .error(function (error) {
-            console.log(response);
-            deferred.reject(error);
-        });
+                method: 'GET',
+                url: appSettings.baseAPIUrl + "/schedules?teamID=" + id
+            })
+            .success(function(response) {
+                deferred.resolve(response);
+            })
+            .error(function(error) {
+                deferred.reject(error);
+            });
 
         return deferred.promise;
     }
 
-    this.getSurroundingSchedule = function(teamID, searchDate){
+    this.getSurroundingSchedule = function(teamID, searchDate) {
         var deferred = $q.defer();
         $http({
-            method: 'POST',
-            url: appSettings.baseAPIUrl + "/schedules/surroundingSchedule",
-            data: { "teamID": teamID, "date": searchDate }
-        })
-        .success(function (response) {
-            deferred.resolve(response);
-        })
-        .error(function (error) {
-            deferred.reject(error);
-        });
+                method: 'POST',
+                url: appSettings.baseAPIUrl + "/schedules/surroundingSchedule",
+                data: {
+                    "teamID": teamID,
+                    "date": searchDate
+                }
+            })
+            .success(function(response) {
+                deferred.resolve(response);
+            })
+            .error(function(error) {
+                deferred.reject(error);
+            });
 
         return deferred.promise;
     }
 }]);
-
-

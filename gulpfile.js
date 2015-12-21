@@ -6,6 +6,9 @@ var gulp = require('gulp'),
     buildTarget = 'build';
 
 var paths = {
+    index: [
+        'index.html'
+    ],
     startup: [
         'startup.js'
     ],
@@ -60,8 +63,13 @@ gulp.task('clean', function(cb) {
     rimraf(buildTarget, cb);
 });
 
-gulp.task('copy', ['copy-startup', 'copy-views', 'copy-services', 'copy-thirdpartyjs', 'copy-shared', 'copy-thirdpartycss', 'copy-fonts'], function() {
+gulp.task('copy', ['copy-index', 'copy-startup', 'copy-views', 'copy-services', 'copy-thirdpartyjs', 'copy-shared', 'copy-thirdpartycss', 'copy-fonts'], function() {
     return; //place holder to run all of the copies
+});
+
+gulp.task('copy-index', function() {
+    return gulp.src(paths.index)
+        .pipe(gulp.dest(buildTarget));
 });
 
 gulp.task('copy-startup', function() {
@@ -132,10 +140,9 @@ gulp.task('build-css', function() {
 
 gulp.task('inject', ['build-css', 'copy'], function() {
     var target = gulp.src('build/index.html');
-    //this should get concat to one file at some pt
-    //this does not copy the html file into the build folder for some reason. It only overwrites the existing one. It's fucked up and im tired
     var sources = gulp.src([
         './build/assets/css/app.css',
+        './build/assets/css/home.css',
         './build/assets/css/style.css',
         './build/assets/css/bootstrap.min.css',
         './build/scripts/jquery.js',
@@ -164,7 +171,7 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('webServer', function() {
+gulp.task('webServer', ['inject'], function() {
     gulp.src(buildTarget)
         .pipe(plugins.webserver({
             port: 9000,
@@ -176,15 +183,8 @@ gulp.task('webServer', function() {
         }));
 });
 
-gulp.task('test', function() {
-    console.log('this is a test');
+gulp.task('build', ['webServer'], function() {
+    gulp.watch(['./services/**/*.js', './shared/**/*.js', './views/**/*.js', './views/**/*.html'], ['copy']);
+    gulp.watch(['./assets/**/*.less'], ['build-css']);
 });
-// Default task
-//gulp.task('watch', function() {
-//   gulp.watch('assets/js/libs/**/*.js', ['squish-jquery']);
-//    gulp.watch('assets/js/*.js', ['build-js']);
-//    gulp.watch('assets/less/**/*.less', ['build-css']);
-//});
-
-gulp.task('build', ['webServer', 'inject']);
 gulp.task('buildProd', ['inject']);
