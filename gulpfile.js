@@ -14,7 +14,8 @@ var paths = {
     ],
     shared: [
         './shared/usMap.js',
-        './shared/datePicker.js'
+        './shared/datePicker.js',
+        './shared/datepicker.decorator.js'
     ],
     views: [
         './views/home.js',
@@ -163,6 +164,7 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/startup.js',
         './build/shared/usMap.js',
         './build/shared/datePicker.js',
+        './build/shared/datepicker.decorator.js',
         './build/services/ScheduleService.js',
         './build/services/SearchService.js',
         './build/views/home.js',

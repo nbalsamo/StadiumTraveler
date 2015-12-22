@@ -3,11 +3,17 @@
         <div class="col-lg-6">
             <div class="search-container">
                 <h2 class="text-center title">Stadium Traveler</h2>
-                <form ng-submit="searchTeam() ">
+                <form ng-submit="">
                     <p class="input-group">
-                        <input class="form-control" type="text" placeholder="Enter Team Name" ng-model="searchedTeam" typeahead="team for team in teams | filter:$viewValue | limitTo:8">
+                        <input class="form-control" type="text" placeholder="Enter Team Name" ng-change="clearDate()" ng-model="searchedTeam" typeahead="team for team in teams | filter:$viewValue | limitTo:8">
                         <span class="input-group-btn ">
-                            <button type="submit " class="btn btn-default "><i class="glyphicon glyphicon-search "></i></button>
+                            <button type="button" class="btn btn-default" ng-click="searchTeam()"><i class="glyphicon glyphicon-search "></i></button>
+                        </span>
+                    </p>
+                    <p class="input-group" ng-show="teamID">
+                        <input type="text" class="form-control" date-picker datepicker-popup="{{format}}" ng-model="searchDate" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
                     </p>
                 </form>
