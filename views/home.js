@@ -16,11 +16,6 @@
 
             $scope.searchTeam = function() {
                 SearchService.searchTeam($scope.searchedTeam).then(function(response) {
-                    /*if (response) {
-                        $state.go('form', {
-                            teamID: response.teamID
-                        });
-                    } */
                     if (response) {
                         $scope.teamID = response.teamID;
                         getSchedule();
@@ -35,6 +30,14 @@
                 $scope.calendar = null;
                 $scope.searchDate = null;
                 $scope.$broadcast('refreshDatepickers') //A bit of hack to get the datepicker re-populate dates
+            }
+
+            $scope.searchSurrounding = function() {
+                console.log('does this not get called?');
+                $state.go('surrounding', {
+                    team: $scope.teamID,
+                    date: $scope.searchDate
+                });
             }
 
             var getSchedule = function() {
