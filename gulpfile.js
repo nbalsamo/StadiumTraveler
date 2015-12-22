@@ -15,7 +15,8 @@ var paths = {
     shared: [
         './shared/usMap.js',
         './shared/datePicker.js',
-        './shared/datepicker.decorator.js'
+        './shared/datepicker.decorator.js',
+        './shared/alert.directive.js'
     ],
     views: [
         './views/home.js',
@@ -30,6 +31,7 @@ var paths = {
     services: [
         './Services/ScheduleService.js',
         './Services/SearchService.js',
+        './Services/AlertService.js',
     ],
     thirdpartyjs: [
         './scripts/jquery.js',
@@ -165,8 +167,10 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/shared/usMap.js',
         './build/shared/datePicker.js',
         './build/shared/datepicker.decorator.js',
+        './build/shared/alert.directive.js',
         './build/services/ScheduleService.js',
         './build/services/SearchService.js',
+        './build/services/AlertService.js',
         './build/views/home.js',
         './build/views/form.js',
         './build/views/surrounding.js',

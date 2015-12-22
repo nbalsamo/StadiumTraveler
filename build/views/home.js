@@ -1,10 +1,9 @@
 (function() {
     'use strict';
-    angular.module('Stadium').controller('HomeController', ['$scope', '$compile', '$state', 'SearchService', 'ScheduleService',
-        function($scope, $compile, $state, SearchService, ScheduleService) {
+    angular.module('Stadium').controller('HomeController', ['$scope', '$compile', '$state', 'SearchService', 'ScheduleService', 'AlertService',
+        function($scope, $compile, $state, SearchService, ScheduleService, AlertService) {
             $scope.searchedTeam; //set on the input
             $scope.teamID = null;
-
 
             SearchService.getAllTeams().then(function(response) {
                 if (response) {
@@ -20,7 +19,12 @@
                         $scope.teamID = response.teamID;
                         getSchedule();
                     } else {
-                        alert($scope.searchedTeam + ' not found!');
+                        AlertService.addAlert({
+                            title: 'Error',
+                            message: $scope.searchedTeam + ' not found!',
+                            type: 'errorAlert', // this has to match the alert-type attribute
+                            alertClass: 'alert-danger', //the alert element will have this class, good for css styling
+                        });
                     }
                 });
             }
