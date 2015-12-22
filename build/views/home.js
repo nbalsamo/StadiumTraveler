@@ -37,7 +37,6 @@
             }
 
             $scope.searchSurrounding = function() {
-                console.log('does this not get called?');
                 $state.go('surrounding', {
                     team: $scope.teamID,
                     date: $scope.searchDate
@@ -45,7 +44,6 @@
             }
 
             var getSchedule = function() {
-                $scope.clearDate();
                 ScheduleService.getSchedule($scope.teamID).then(function(response) {
                     $scope.calendar = response;
                     $scope.$broadcast('refreshDatepickers') //A bit of hack to get the datepicker re-populate dates
