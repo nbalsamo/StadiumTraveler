@@ -4,6 +4,7 @@
         function($scope, $compile, $state, SearchService, ScheduleService, AlertService) {
             $scope.searchedTeam; //set on the input
             $scope.teamID = null;
+            $scope.disabledDates = {};
 
             SearchService.getAllTeams().then(function(response) {
                 if (response) {
@@ -21,7 +22,7 @@
                     } else {
                         AlertService.addAlert({
                             title: 'Error',
-                            message: $scope.searchedTeam + ' not found!',
+                            message: '"' + $scope.searchedTeam + '"' + ' not found!',
                             type: 'errorAlert', // this has to match the alert-type attribute
                             alertClass: 'alert-danger', //the alert element will have this class, good for css styling
                         });

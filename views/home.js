@@ -4,6 +4,7 @@
         function($scope, $compile, $state, SearchService, ScheduleService, AlertService) {
             $scope.searchedTeam; //set on the input
             $scope.teamID = null;
+            $scope.disabledDates = {};
 
             SearchService.getAllTeams().then(function(response) {
                 if (response) {
