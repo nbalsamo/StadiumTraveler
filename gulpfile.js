@@ -13,9 +13,7 @@ var paths = {
         'startup.js'
     ],
     shared: [
-        './shared/usMap.js',
-        './shared/datePicker.js',
-        './shared/datepicker.decorator.js',
+        //'./shared/usMap.js',
         './shared/alert.directive.js',
         './shared/calendar.directive.js',
         './shared/calendar.template.html'
@@ -36,18 +34,18 @@ var paths = {
         './Services/AlertService.js',
     ],
     thirdpartyjs: [
-        './scripts/jquery.js',
+        //'./scripts/jquery.js',
         './scripts/angular.js',
         './scripts/angular-ui-router.js',
         './scripts/ui-bootstrap-tpls-0.12.1.min.js',
-        './scripts/jquery.mousewheel.min.js',
-        './scripts/raphael-min.js',
-        './scripts/jquery.mapael.js',
+        //'./scripts/jquery.mousewheel.min.js',
+        //'./scripts/raphael-min.js',
+        //'./scripts/jquery.mapael.js',
         './scripts/moment.min.js',
         './scripts/underscore.min.js'
     ],
     maps: [
-        './scripts/maps/usa_states.js'
+        //'./scripts/maps/usa_states.js'
     ],
     thirdpartycss: [
         './assets/css/style.css',
@@ -161,19 +159,17 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/assets/css/style.css',
         './build/assets/css/bootstrap.min.css',
         './build/assets/css/calendar.directive.css',
-        './build/scripts/jquery.js',
+        //'./build/scripts/jquery.js',
         './build/scripts/angular.js',
         './build/scripts/angular-ui-router.js',
         './build/scripts/ui-bootstrap-tpls-0.12.1.min.js',
-        './build/scripts/jquery.mousewheel.min.js',
-        './build/scripts/raphael-min.js',
-        './build/scripts/jquery.mapael.js',
+        //'./build/scripts/jquery.mousewheel.min.js',
+        //'./build/scripts/raphael-min.js',
+        //'./build/scripts/jquery.mapael.js',
         './build/scripts/moment.min.js',
         './build/scripts/underscore.min.js',
         './build/startup.js',
-        './build/shared/usMap.js',
-        './build/shared/datePicker.js',
-        './build/shared/datepicker.decorator.js',
+        //'./build/shared/usMap.js',
         './build/shared/calendar.directive.js',
         './build/shared/alert.directive.js',
         './build/services/ScheduleService.js',
@@ -182,7 +178,7 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/views/home.js',
         './build/views/form.js',
         './build/views/surrounding.js',
-        './build/views/map.js'
+        //'./build/views/map.js'
 
     ]);
     return target.pipe(inject(sources, {

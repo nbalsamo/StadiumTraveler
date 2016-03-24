@@ -4,7 +4,8 @@
         function($scope, $compile, $state, SearchService, ScheduleService, AlertService) {
             $scope.searchedTeam; //set on the input
             $scope.teamID = null;
-            $scope.disabledDates = {};
+            $scope.calendar = {};
+            $scope.showCalendar = false;
 
             SearchService.getAllTeams().then(function(response) {
                 if (response) {
@@ -30,13 +31,6 @@
                 });
             }
 
-            $scope.clearDate = function() {
-                /* clear the calendar when the input team changes */
-                $scope.calendar = null;
-                $scope.searchDate = null;
-                $scope.$broadcast('refreshDatepickers') //A bit of hack to get the datepicker re-populate dates
-            }
-
             $scope.searchSurrounding = function() {
                 $state.go('surrounding', {
                     team: $scope.teamID,
@@ -44,12 +38,19 @@
                 });
             }
 
+            $scope.toggleCalendar = function(searchDate){
+                $scope.showCalendar = !$scope.showCalendar;
+                if(searchDate){
+                    $scope.searchDate = searchDate;
+                }
+            }
+
             var getSchedule = function() {
                 ScheduleService.getSchedule($scope.teamID).then(function(response) {
                     $scope.calendar = response;
                     $scope.$broadcast('refreshDatepickers') //A bit of hack to get the datepicker re-populate dates
                 }, function(err) {
-                    console.log('Error: ' + err); //TODO - needs an error handler
+                    console.log('Error: ' + err);
                 })
             }
         }

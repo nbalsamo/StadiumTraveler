@@ -5,18 +5,23 @@ m.directive('calendar', function() {
         restrict: "E",
         templateUrl: "./shared/calendar.template.html",
         scope: {
-            selected: "=",
-            disabledDates: "="
+            validDates: "=",
+            onSelect: "=",
+            selected: "="
         },
         link: function(scope) {
-            scope.selected = removeTime(moment());
+            console.log(scope.selected)
+            scope.selected = scope.selected ? scope.selected : removeTime(moment());
             scope.month = scope.selected.clone();
 
             var start = lastSundayOfLastMonth(scope.selected);
             _buildMonth(scope, start, scope.month);
 
             scope.select = function(day) {
-                scope.selected = day.date;
+                if(!day.isDisabled){
+                    scope.selected = day.date;
+                    scope.onSelect(scope.selected);
+                }
             };
 
             scope.nextMonth = function() {
@@ -59,7 +64,7 @@ m.directive('calendar', function() {
 
         while (!done) {
             scope.weeks.push({
-                days: _buildWeek(currentDate, month, scope.disabledDates)
+                days: _buildWeek(currentDate, month, scope.validDates)
             });
             currentDate.add(1, "w");
             done = count++ > 2 && monthIndex !== currentDate.month();
@@ -67,16 +72,17 @@ m.directive('calendar', function() {
         }
     }
 
-    function _buildWeek(startDate, month, disabledDates) {
+    function _buildWeek(startDate, month, validDates) {
         var days = [];
         var currentDate = startDate.clone();
         for (var i = 0; i < 7; i++) {
             days.push({
                 name: currentDate.format("dd").substring(0, 1),
                 number: currentDate.date(),
-                isCurrentMonth: currentDate.month() === month.month() && !disabledDates.hasOwnProperty(buildDateFormat(currentDate)),
+                isCurrentMonth: currentDate.month() === month.month(),
                 isToday: currentDate.isSame(new Date(), "day"),
-                date: currentDate
+                date: currentDate,
+                isDisabled: !validDates.hasOwnProperty(buildDateFormat(currentDate))
             });
             currentDate = currentDate.clone();
             currentDate.add(1, "d");
@@ -85,6 +91,7 @@ m.directive('calendar', function() {
     }
 
     function buildDateFormat(date) {
-        return date.format('M') + '/' + date.date() + '/' + date.format('YYYY');
+        var stringDate =  date.format('M') + '/' + date.date() + '/' + date.format('YYYY');
+        return stringDate;
     }
 });

@@ -21,10 +21,6 @@
             /*go to map*/
             $scope.goToMap = function () {
                 console.log('does this ever get called');
-                $state.go('map', {
-                    team: $scope.teamID,
-                    date: $scope.date
-                });
             }
         }
     ]);
