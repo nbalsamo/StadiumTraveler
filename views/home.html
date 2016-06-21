@@ -4,19 +4,11 @@
             <div class="search-container">
                 <h2 class="text-center title">Stadium Traveler</h2>
                 <p class="input-group">
-                    <input class="form-control" type="text" placeholder="Enter Team Name" ng-change="clearDate()" ng-model="searchedTeam" typeahead="team for team in teams | filter:$viewValue | limitTo:8" ng-required="true">
+                    <input class="form-control" type="text" placeholder="Enter Team Name" ng-model="searchedTeam" typeahead="team for team in teams | filter:$viewValue | limitTo:8" ng-required="true">
                     <span class="input-group-btn ">
                             <button type="button" class="btn btn-default" ng-click="searchTeam()"><i class="glyphicon glyphicon-search "></i></button>
                         </span>
                 </p>
-                <p class="input-group" ng-show="teamID">
-                    <input type="text" class="form-control" ng-model="searchDate" ng-click="toggleCalendar()"/>
-                    <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="toggleCalendar()"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </p>
-                <calendar ng-if="teamID && showCalendar" valid-dates="calendar" on-select="toggleCalendar" selected="searchDate"></calendar>
-                <button type="submit" class="btn btn-default" ng-show="teamID && searchDate" ng-click="searchSurrounding()">Search</button>
                 <custom-alerts alert-type="errorAlert"></custom-alerts>
             </div>
         </div>

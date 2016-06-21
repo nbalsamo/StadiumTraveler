@@ -39,7 +39,7 @@ angular.module('Stadium').service('SearchService', ['appSettings', '$http', '$q'
 
         $http({
                 method: 'GET',
-                url: appSettings.baseAPIUrl + "/search/teams"
+                url: appSettings.baseAPIUrl + "/teams"
             })
             .success(function(response) {
                 deferred.resolve(response);

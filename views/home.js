@@ -11,7 +11,12 @@
                 if (response) {
                     $scope.teams = response;
                 } else {
-                    console.log('Error getting master list of teams');
+                    AlertService.addAlert({
+                        title: 'Error',
+                        message: 'Something went wrong!',
+                        type: 'errorAlert', // this has to match the alert-type attribute
+                        alertClass: 'alert-danger', //the alert element will have this class, good for css styling
+                    });
                 }
             });
 
@@ -29,20 +34,6 @@
                         });
                     }
                 });
-            }
-
-            $scope.searchSurrounding = function() {
-                $state.go('surrounding', {
-                    team: $scope.teamID,
-                    date: $scope.searchDate
-                });
-            }
-
-            $scope.toggleCalendar = function(searchDate){
-                $scope.showCalendar = !$scope.showCalendar;
-                if(searchDate){
-                    $scope.searchDate = searchDate;
-                }
             }
 
             var getSchedule = function() {
