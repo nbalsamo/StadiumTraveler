@@ -50,4 +50,21 @@ angular.module('Stadium').service('TeamService', ['appSettings', '$http', '$q', 
 
         return deferred.promise;
     }
+
+    this.getTeamSchedule = function(teamID) {
+        var deferred = $q.defer();
+
+        $http({
+                method: 'GET',
+                url: appSettings.baseAPIUrl + '/teams/' + teamID + '/schedule'
+            })
+            .success(function(response) {
+                deferred.resolve(response);
+            })
+            .error(function(error) {
+                deferred.reject(error);
+            });
+
+        return deferred.promise;
+    }
 }]);

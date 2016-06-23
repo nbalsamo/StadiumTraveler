@@ -1,15 +1,21 @@
 (function() {
     'use strict';
-    angular.module('Stadium').controller('HomeController', ['$scope', '$compile', '$state', 'SearchService', 'ScheduleService', 'AlertService',
-        function($scope, $compile, $state, SearchService, ScheduleService, AlertService) {
+    angular.module('Stadium').controller('HomeController', ['$scope', '$compile', '$state', 'TeamService', 'ScheduleService', 'AlertService',
+        function($scope, $compile, $state, TeamService, ScheduleService, AlertService) {
             $scope.searchedTeam; //set on the input
-            $scope.teamID = null;
-            $scope.calendar = {};
-            $scope.showCalendar = false;
 
-            SearchService.getAllTeams().then(function(response) {
+            TeamService.getAllTeams().then(function(response) {
                 if (response) {
-                    $scope.teams = response;
+                    $scope.teams = response.map(function(team) {
+                        return {
+                            position: team.position,
+                            sportID: team.sportID,
+                            stadiumName: team.stadiumName,
+                            teamCity: team.teamCity,
+                            teamID: team.teamID,
+                            teamName: team.teamName
+                        }
+                    })
                 } else {
                     AlertService.addAlert({
                         title: 'Error',
@@ -21,28 +27,24 @@
             });
 
             $scope.searchTeam = function() {
-                SearchService.searchTeam($scope.searchedTeam).then(function(response) {
-                    if (response) {
-                        $scope.teamID = response.teamID;
-                        getSchedule();
-                    } else {
-                        AlertService.addAlert({
-                            title: 'Error',
-                            message: '"' + $scope.searchedTeam + '"' + ' not found!',
-                            type: 'errorAlert', // this has to match the alert-type attribute
-                            alertClass: 'alert-danger', //the alert element will have this class, good for css styling
-                        });
-                    }
-                });
-            }
+                if ($scope.searchedTeam) {
+                    var team = _.find($scope.teams, function(team) {
+                        return team.teamName === $scope.searchedTeam;
+                    });
+                    console.log(team)
 
-            var getSchedule = function() {
-                ScheduleService.getSchedule($scope.teamID).then(function(response) {
-                    $scope.calendar = response;
-                    $scope.$broadcast('refreshDatepickers') //A bit of hack to get the datepicker re-populate dates
-                }, function(err) {
-                    console.log('Error: ' + err);
-                })
+                    $state.go('schedule', {
+                        teamID: team.teamID
+                    });
+
+                } else {
+                    AlertService.addAlert({
+                        title: 'Warning',
+                        message: 'Please select a team from the list',
+                        type: 'errorAlert', // this has to match the alert-type attribute
+                        alertClass: 'alert-danger', //the alert element will have this class, good for css styling
+                    });
+                }
             }
         }
     ]);

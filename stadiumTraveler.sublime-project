@@ -5,8 +5,7 @@
 			"folder_exclude_patterns":
 			[
 				"node_modules",
-				"build",
-				"scripts"
+				"build"
 			],
 			"path": "."
 		}

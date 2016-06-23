@@ -26,11 +26,13 @@ var paths = {
         './views/surrounding.js',
         './views/surrounding.html',
         './views/map.js',
-        './views/map.html'
+        './views/map.html',
+        './views/scheduleList.js',
+        './views/scheduleList.html',
     ],
     services: [
         './Services/ScheduleService.js',
-        './Services/SearchService.js',
+        './Services/teamService.js',
         './Services/AlertService.js',
     ],
     thirdpartyjs: [
@@ -173,11 +175,12 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/shared/calendar.directive.js',
         './build/shared/alert.directive.js',
         './build/services/ScheduleService.js',
-        './build/services/SearchService.js',
+        './build/services/teamService.js',
         './build/services/AlertService.js',
         './build/views/home.js',
         './build/views/form.js',
         './build/views/surrounding.js',
+        './build/views/scheduleList.js',
         //'./build/views/map.js'
 
     ]);

@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    angular.module('Stadium').controller('FormController', ['$scope', '$compile', '$state', 'SearchService', 'ScheduleService',
-        function($scope, $compile, $state, SearchService, ScheduleService) {
+    angular.module('Stadium').controller('FormController', ['$scope', '$compile', '$state', 'TeamService', 'ScheduleService',
+        function($scope, $compile, $state, TeamService, ScheduleService) {
 
             $scope.teamID = $state.params.teamID;
 
