@@ -6,7 +6,7 @@
 
             TeamService.getTeamSchedule(teamID).then(function(response) {
                 if (response) {
-                    console.log(response[0]);
+                    console.log(response);
                     $scope.schedule = response;
                 } else {
                     AlertService.addAlert({

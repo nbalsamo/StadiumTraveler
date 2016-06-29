@@ -16,7 +16,9 @@ var paths = {
         //'./shared/usMap.js',
         './shared/alert.directive.js',
         './shared/calendar.directive.js',
-        './shared/calendar.template.html'
+        './shared/calendar.template.html',
+        './shared/scheduleItem.directive.js',
+        './shared/scheduleItem.template.html'
     ],
     views: [
         './views/home.js',
@@ -174,6 +176,7 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         //'./build/shared/usMap.js',
         './build/shared/calendar.directive.js',
         './build/shared/alert.directive.js',
+        './build/shared/scheduleItem.directive.js',
         './build/services/ScheduleService.js',
         './build/services/teamService.js',
         './build/services/AlertService.js',

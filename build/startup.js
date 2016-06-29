@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    var app = angular.module("Stadium", ['ui.bootstrap', 'calendarDirective', 'ui.router']);
+    var app = angular.module("Stadium", ['ui.bootstrap', 'calendarDirective', 'ui.router', 'scheduleItemDirective']);
 
     var baseAPIUrl = 'http://localhost:3000';
     //var baseAPIUrl = 'https://stadiumtraveler-api.herokuapp.com'
