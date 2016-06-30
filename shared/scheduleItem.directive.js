@@ -5,7 +5,8 @@ m.directive('scheduleItem', function() {
         restrict: "E",
         templateUrl: "./shared/scheduleItem.template.html",
         scope: {
-            game: '='
+            game: '=',
+            action: '='
         },
         link: function(scope) {
             /*game = {
@@ -15,6 +16,7 @@ m.directive('scheduleItem', function() {
                 isHome
             }*/
             scope.game.dayOfWeek = moment(scope.game.date).format('ddd');
+
         }
     };
 });

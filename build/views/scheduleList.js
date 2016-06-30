@@ -6,18 +6,23 @@
 
             TeamService.getTeamSchedule(teamID).then(function(response) {
                 if (response) {
-                    console.log(response);
                     $scope.schedule = response;
                 } else {
                     AlertService.addAlert({
                         title: 'Error',
                         message: 'Something went wrong!',
-                        type: 'errorAlert', // this has to match the alert-type attribute
-                        alertClass: 'alert-danger', //the alert element will have this class, good for css styling
+                        type: 'errorAlert',
+                        alertClass: 'alert-danger',
                     });
                 }
             });
 
+            $scope.getSurrounding = function(game) {
+                $state.go('surrounding', {
+                    team: teamID,
+                    date: game.date
+                });
+            }
         }
     ]);
 })();

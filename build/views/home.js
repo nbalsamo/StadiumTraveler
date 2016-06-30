@@ -20,8 +20,8 @@
                     AlertService.addAlert({
                         title: 'Error',
                         message: 'Something went wrong!',
-                        type: 'errorAlert', // this has to match the alert-type attribute
-                        alertClass: 'alert-danger', //the alert element will have this class, good for css styling
+                        type: 'errorAlert',
+                        alertClass: 'alert-danger',
                     });
                 }
             });
@@ -31,7 +31,6 @@
                     var team = _.find($scope.teams, function(team) {
                         return team.teamName === $scope.searchedTeam;
                     });
-                    console.log(team)
 
                     $state.go('schedule', {
                         teamID: team.teamID
@@ -41,8 +40,8 @@
                     AlertService.addAlert({
                         title: 'Warning',
                         message: 'Please select a team from the list',
-                        type: 'errorAlert', // this has to match the alert-type attribute
-                        alertClass: 'alert-danger', //the alert element will have this class, good for css styling
+                        type: 'errorAlert',
+                        alertClass: 'alert-danger',
                     });
                 }
             }
