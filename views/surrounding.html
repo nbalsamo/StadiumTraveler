@@ -1,16 +1,11 @@
-﻿<div id="container">
+﻿<div class="container">
     <div class="row">
         <div class="col-md-12">
             <tabset justified="true">
                 <tab heading="NHL">
-                    <ul ng-repeat="nhl in surroundingSchedule.nhlGames">
-                        <li>
-                            <label>{{nhl.HomeTeamName}}</label>
-                            <label>{{nhl.AwayTeamName}}</label>
-                            <label>{{nhl.Date}}</label>
-                            <span class="icon-checkmark">&#xea10;</span>
-                        </li>
-                    </ul>
+                    <div ng-repeat="game in surroundingSchedule track by $index">
+                        <schedule-item game="game"></schedule-item>
+                    </div>
                 </tab>
                 <tab heading="NBA">
                     <ul ng-repeat="nba in surroundingSchedule.nbaGames">

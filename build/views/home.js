@@ -4,6 +4,8 @@
         function($scope, $compile, $state, TeamService, ScheduleService, AlertService) {
             $scope.searchedTeam; //set on the input
 
+            console.log('home controller');
+
             TeamService.getAllTeams().then(function(response) {
                 if (response) {
                     $scope.teams = response.map(function(team) {

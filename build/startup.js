@@ -14,12 +14,8 @@
                 url: '/home',
                 templateUrl: 'views/home.html',
                 controller: 'HomeController'
-            }).state('form', {
-                url: '/{teamID:int}/form',
-                templateUrl: 'views/form.html',
-                controller: 'FormController'
             }).state('surrounding', {
-                url: '/{team:int}/surrounding?date',
+                url: '/{team:int}/surrounding/?date&distance',
                 templateUrl: 'views/surrounding.html',
                 controller: 'SurroundingController'
             }).state('schedule', {

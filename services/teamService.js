@@ -67,4 +67,21 @@ angular.module('Stadium').service('TeamService', ['appSettings', '$http', '$q', 
 
         return deferred.promise;
     }
+
+    this.getSurroundingSchedule = function(teamID, date, distance) {
+        var deferred = $q.defer();
+
+        $http({
+                method: 'GET',
+                url: appSettings.baseAPIUrl + '/teams/' + teamID + '/surrounding?date=' + date + '&distance=' + distance
+            })
+            .success(function(response) {
+                deferred.resolve(response);
+            })
+            .error(function(error) {
+                deferred.reject(error);
+            });
+
+        return deferred.promise;
+    }
 }]);

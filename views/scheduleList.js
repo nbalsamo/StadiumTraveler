@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    angular.module('Stadium').controller('ScheduleListController', ['$scope', '$compile', '$state', 'TeamService', 'ScheduleService',
-        function($scope, $compile, $state, TeamService, ScheduleService) {
+    angular.module('Stadium').controller('ScheduleListController', ['$scope', '$compile', '$state', 'TeamService',
+        function($scope, $compile, $state, TeamService) {
             var teamID = $state.params.teamID;
 
             TeamService.getTeamSchedule(teamID).then(function(response) {
@@ -18,9 +18,10 @@
             });
 
             $scope.getSurrounding = function(game) {
+                var gameDate = new Date(game.date);
                 $state.go('surrounding', {
                     team: teamID,
-                    date: game.date
+                    date: gameDate.toISOString()
                 });
             }
         }
