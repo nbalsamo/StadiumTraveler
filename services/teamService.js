@@ -56,7 +56,7 @@ angular.module('Stadium').service('TeamService', ['appSettings', '$http', '$q', 
 
         $http({
                 method: 'GET',
-                url: appSettings.baseAPIUrl + '/teams/' + teamID + '/schedule'
+                url: appSettings.baseAPIUrl + '/teams/' + teamID + '/schedule?filter=1' //filter of one is only the home games
             })
             .success(function(response) {
                 deferred.resolve(response);

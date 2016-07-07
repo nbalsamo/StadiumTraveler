@@ -12,10 +12,12 @@ m.directive('scheduleItem', function() {
             /*game = {
                 date, 
                 time, 
-                opponent, 
+                homeTeam,
+                awayTeam 
                 isHome
             }*/
             scope.game.dayOfWeek = moment(scope.game.date).format('ddd');
+            scope.game.date = moment(scope.game.date).format('MM/DD/YYYY')
 
         }
     };
