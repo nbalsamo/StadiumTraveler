@@ -3,39 +3,29 @@
         <div class="col-md-12">
             <tabset justified="true">
                 <tab heading="NHL">
-                    <div ng-repeat="game in surroundingSchedule track by $index">
+                    <div ng-repeat="game in surroundingSchedule.nhl track by $index">
                         <schedule-item game="game"></schedule-item>
                     </div>
                 </tab>
                 <tab heading="NBA">
-                    <ul ng-repeat="nba in surroundingSchedule.nbaGames">
-                        <li>
-                            <label>{{nba.HomeTeamName}}</label>
-                            <label>{{nba.AwayTeamName}}</label>
-                            <label>{{nba.Date}}</label>
-                            <span class="icon-checkmark">&#xea10;</span>
-                        </li>
-                    </ul>
+                    <div ng-repeat="game in surroundingSchedule.nba track by $index">
+                        <schedule-item game="game"></schedule-item>
+                    </div>
                 </tab>
                 <tab heading="MLB">
-                    <ul ng-repeat="mlb in surroundingSchedule.mlbgames">
-                        <li>
-                            <label>{{mlb.HomeTeamName}}</label>
-                            <label>{{mlb.AwayTeamName}}</label>
-                            <label>{{mlb.Date}}</label>
-                            <span class="icon-checkmark">&#xea10;</span>
-                        </li>
-                    </ul>
+                    <div ng-repeat="game in surroundingSchedule.mlb track by $index">
+                        <schedule-item game="game"></schedule-item>
+                    </div>
                 </tab>
                 <tab heading="NFL">
-                    <ul ng-repeat="nfl in surroundingSchedule.nflGames">
-                        <li>
-                            <label>{{nfl.HomeTeamName}}</label>
-                            <label>{{nfl.AwayTeamName}}</label>
-                            <label>{{nfl.Date}}</label>
-                            <span class="icon-checkmark">&#xea10;</span>
-                        </li>
-                    </ul>
+                    <div ng-repeat="game in surroundingSchedule.nfl track by $index">
+                        <schedule-item game="game"></schedule-item>
+                    </div>
+                </tab>
+                <tab heading="NCAAF">
+                    <div ng-repeat="game in surroundingSchedule.ncaaf track by $index">
+                        <schedule-item game="game"></schedule-item>
+                    </div>
                 </tab>
             </tabset>
         </div>
