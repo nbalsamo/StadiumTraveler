@@ -6,7 +6,8 @@
         </div>
         <div class="col-md-10" style="border:solid" ng-click="action(game)"> 
 	        <h4>{{game.awayTeam}} AT {{game.homeTeam}}<h4>
-	        <h6>{{game.time}}<h6>
+	        <h6>{{game.time}} <span ng-click="goToMap()">{{game.homeStadiumName}}</span> {{game.homeTeamCity}} , {{game.homeTeamState}}<h6>
+
         </div>
     </div>
 </div>

@@ -19,6 +19,10 @@ m.directive('scheduleItem', function() {
             scope.game.dayOfWeek = moment(scope.game.date).format('ddd');
             scope.game.date = moment(scope.game.date).format('MM/DD/YYYY')
 
+            scope.goToMap = function() {
+                console.log('insert map stuff');
+            }
+
         }
     };
 });
