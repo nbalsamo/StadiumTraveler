@@ -18,7 +18,8 @@
                     url: '',
                     views: {
                         'header': {
-                            template: 'header'
+                            templateUrl: 'views/header.html',
+                            controller: 'HeaderController'
                         }
                     }
                 })
@@ -50,9 +51,4 @@
                 })
         }
     ]);
-
-    app.controller('HeaderCtrl', ['$scope', function($scope) {
-        console.log('does this other one get called');
-        $scope.links = [];
-    }]);
 })();

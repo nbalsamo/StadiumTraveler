@@ -31,6 +31,8 @@ var paths = {
         './views/map.html',
         './views/scheduleList.js',
         './views/scheduleList.html',
+        './views/header.js',
+        './views/header.html',
     ],
     services: [
         './Services/ScheduleService.js',
@@ -184,6 +186,7 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/views/form.js',
         './build/views/surrounding.js',
         './build/views/scheduleList.js',
+        './build/views/header.js',
         //'./build/views/map.js'
 
     ]);
