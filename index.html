@@ -8,9 +8,10 @@
 </head>
 
 <body>
-    <div ui-view class="full"></div>
     <!-- inject:js -->
     <!-- endinject -->
+    <div ui-view="header"></div>
+    <div class="container" ui-view="container"></div>
 </body>
 
 </html>

@@ -10,20 +10,47 @@
 
     app.config(['$stateProvider',
         function($stateProvider) {
-            $stateProvider.state('home', {
-                url: '/home',
-                templateUrl: 'views/home.html',
-                controller: 'HomeController'
-            }).state('surrounding', {
-                url: '/{team:int}/surrounding/?date&distance',
-                templateUrl: 'views/surrounding.html',
-                controller: 'SurroundingController'
-            }).state('schedule', {
-                url: '/schedule/{teamID:int}/',
-                templateUrl: 'views/scheduleList.html',
-                controller: 'ScheduleListController'
-            })
+            $stateProvider
+                .state('root', {
+                    abstract: true,
+                    url: '',
+                    views: {
+                        'header': {
+                            template: 'header'
+                        }
+                    }
+                })
+                .state('root.home', {
+                    url: '/home',
+                    views: {
+                        'container@': {
+                            templateUrl: 'views/home.html',
+                            controller: 'HomeController'
+                        }
+                    }
+                })
+                .state('root.surrounding', {
+                    url: '/{team:int}/surrounding/?date&distance',
+                    views: {
+                        'container@': {
+                            templateUrl: 'views/surrounding.html',
+                            controller: 'SurroundingController'
+                        }
+                    }
+                }).state('root.schedule', {
+                    url: '/schedule/{teamID:int}/',
+                    views: {
+                        'container@': {
+                            templateUrl: 'views/scheduleList.html',
+                            controller: 'ScheduleListController'
+                        }
+                    }
+                })
         }
     ]);
 
+    app.controller('HeaderCtrl', ['$scope', function($scope) {
+        console.log('does this other one get called');
+        $scope.links = [];
+    }]);
 })();

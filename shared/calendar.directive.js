@@ -10,7 +10,6 @@ m.directive('calendar', function() {
             selected: "="
         },
         link: function(scope) {
-            console.log(scope.selected)
             scope.selected = scope.selected ? scope.selected : removeTime(moment());
             scope.month = scope.selected.clone();
 
@@ -18,7 +17,7 @@ m.directive('calendar', function() {
             _buildMonth(scope, start, scope.month);
 
             scope.select = function(day) {
-                if(!day.isDisabled){
+                if (!day.isDisabled) {
                     scope.selected = day.date;
                     scope.onSelect(scope.selected);
                 }
@@ -91,7 +90,7 @@ m.directive('calendar', function() {
     }
 
     function buildDateFormat(date) {
-        var stringDate =  date.format('M') + '/' + date.date() + '/' + date.format('YYYY');
+        var stringDate = date.format('M') + '/' + date.date() + '/' + date.format('YYYY');
         return stringDate;
     }
 });

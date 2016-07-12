@@ -34,7 +34,7 @@
                         return team.teamName === $scope.searchedTeam;
                     });
 
-                    $state.go('schedule', {
+                    $state.go('root.schedule', {
                         teamID: team.teamID
                     });
 

@@ -13,7 +13,6 @@
 </head>
 
 <body>
-    <div ui-view class="full"></div>
     <!-- inject:js -->
     <script src="scripts/angular.js"></script>
     <script src="scripts/angular-ui-router.js"></script>
@@ -32,6 +31,8 @@
     <script src="views/surrounding.js"></script>
     <script src="views/scheduleList.js"></script>
     <!-- endinject -->
+    <div ui-view="header"></div>
+    <div class="container" ui-view="container"></div>
 </body>
 
 </html>
