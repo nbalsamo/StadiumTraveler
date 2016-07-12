@@ -30,3 +30,4 @@ node_modules
 stadiumTraveler.sublime-workspace
 
 #DONT ADD BUILD BECAUSE IT's NEEDED FOR HEROKU
+bower_components/*

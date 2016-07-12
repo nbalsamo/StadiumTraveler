@@ -1,0 +1,33 @@
+{
+  "name": "Stadium Traveler",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "private"
+  ],
+  "authors": [
+    "Nick Balsamo"
+  ],
+  "license": "COMMERCIAL SOFTWARE",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular": "~1.5.2",
+    "ui-router": "~0.2.15",
+    "angular-ui-router": "~0.2.15",
+    "moment": "~2.10.6",
+    "angular-moment": "1.0.0-beta.4",
+    "autofill-event": "~1.0.0",
+    "angular-mocks": "~1.5.0",
+    "angular-material": "~1.1.0-RC1",
+    "angular-bootstrap": "~1.2.5",
+    "lodash": "~4.13.1",
+    "underscore": "^1.8.3"
+  }
+}

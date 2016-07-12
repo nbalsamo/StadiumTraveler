@@ -1,23 +1,23 @@
 ﻿<div class="row">
-    <tabset justified="true">
-        <tab heading="NHL">
+    <uib-tabset active="active">
+        <uib-tab heading="NHL">
             <div ng-repeat="game in surroundingSchedule.nhl track by $index">
                 <schedule-item game="game"></schedule-item>
             </div>
-        </tab>
-        <tab heading="NFL">
+        </uib-tab>
+        <uib-tab heading="NFL">
             <div ng-repeat="game in surroundingSchedule.nfl track by $index">
                 <schedule-item game="game"></schedule-item>
             </div>
-        </tab>
-        <tab heading="NBA">
+        </uib-tab>
+        <uib-tab heading="NBA">
             DATA NOT AVAILABLE
-        </tab>
-        <tab heading="MLB">
+        </uib-tab>
+        <uib-tab heading="MLB">
             DATA NOT AVAILABLE
-        </tab>
-        <tab heading="NCAAF">
+        </uib-tab>
+        <uib-tab heading="NCAAF">
             DATA NOT AVAILABLE
-        </tab>
-    </tabset>
+        </uib-tab>
+    </uib-tabset>
 </div>
