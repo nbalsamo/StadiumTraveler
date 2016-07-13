@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    angular.module('Stadium').controller('HomeController', ['$scope', '$compile', '$state', 'TeamService', 'ScheduleService', 'AlertService',
-        function($scope, $compile, $state, TeamService, ScheduleService, AlertService) {
+    angular.module('Stadium').controller('HomeController', ['$scope', '$compile', '$state', 'TeamService', 'AlertService',
+        function($scope, $compile, $state, TeamService, AlertService) {
             $scope.searchedTeam; //set on the input
 
             TeamService.getAllTeams().then(function(response) {

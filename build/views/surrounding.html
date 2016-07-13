@@ -1,4 +1,11 @@
 <div class="row">
+    <label>Distance (miles)</label>
+    <div class="input-group">
+        <input type="number" min="0" ng-model="distance" class="form-control">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="searchSurrounding()">Go!</button>
+        </span>
+    </div>
     <uib-tabset active="active">
         <uib-tab heading="NHL">
             <div ng-repeat="game in surroundingSchedule.nhl track by $index">
