@@ -51,12 +51,15 @@ angular.module('Stadium').service('TeamService', ['appSettings', '$http', '$q', 
         return deferred.promise;
     }
 
-    this.getTeamSchedule = function(teamID) {
+    //filter 1- home 2- away 
+    this.getTeamSchedule = function(teamID, filter) {
         var deferred = $q.defer();
+
+        var filterQueryString = filter ? '?filter=' + filter : '';
 
         $http({
                 method: 'GET',
-                url: appSettings.baseAPIUrl + '/teams/' + teamID + '/schedule?filter=1' //filter of one is only the home games
+                url: appSettings.baseAPIUrl + '/teams/' + teamID + '/schedule' + filterQueryString
             })
             .success(function(response) {
                 deferred.resolve(response);

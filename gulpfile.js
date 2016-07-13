@@ -13,12 +13,12 @@ var paths = {
         'startup.js'
     ],
     shared: [
-        //'./shared/usMap.js',
         './shared/alert.directive.js',
         './shared/calendar.directive.js',
         './shared/calendar.template.html',
         './shared/scheduleItem.directive.js',
-        './shared/scheduleItem.template.html'
+        './shared/scheduleItem.template.html',
+        './shared/filter.js'
     ],
     views: [
         './views/home.js',
@@ -40,20 +40,14 @@ var paths = {
         './Services/AlertService.js',
     ],
     thirdpartyjs: [
-        //'./scripts/jquery.js',
         './bower_components/angular/angular.js',
         './bower_components/angular-ui-router/release/angular-ui-router.js',
         './bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-        //'./scripts/jquery.mousewheel.min.js',
-        //'./scripts/raphael-min.js',
-        //'./scripts/jquery.mapael.js',
         './bower_components/moment/moment.js',
         './bower_components/angular-moment/angular-moment.js',
         './bower_components/underscore/underscore.js',
     ],
-    maps: [
-        //'./scripts/maps/usa_states.js'
-    ],
+    maps: [],
     thirdpartycss: [
         './assets/css/style.css',
         './assets/css/bootstrap.min.css'
@@ -166,21 +160,17 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/assets/css/style.css',
         './build/assets/css/bootstrap.min.css',
         './build/assets/css/calendar.directive.css',
-        //'./build/scripts/jquery.js',
         './build/scripts/angular.js',
         './build/scripts/angular-ui-router.js',
         './build/scripts/ui-bootstrap-tpls.js',
-        //'./build/scripts/jquery.mousewheel.min.js',
-        //'./build/scripts/raphael-min.js',
-        //'./build/scripts/jquery.mapael.js',
         './build/scripts/moment.js',
         './build/scripts/angular-moment.js',
         './build/scripts/underscore.js',
         './build/startup.js',
-        //'./build/shared/usMap.js',
         './build/shared/calendar.directive.js',
         './build/shared/alert.directive.js',
         './build/shared/scheduleItem.directive.js',
+        './build/shared/filters.js',
         './build/services/ScheduleService.js',
         './build/services/teamService.js',
         './build/services/AlertService.js',
@@ -189,8 +179,6 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/views/surrounding.js',
         './build/views/scheduleList.js',
         './build/views/header.js',
-        //'./build/views/map.js'
-
     ]);
     return target.pipe(inject(sources, {
             relative: true
