@@ -16,8 +16,8 @@ var paths = {
         './shared/alert.directive.js',
         './shared/calendar.directive.js',
         './shared/calendar.template.html',
-        './shared/scheduleItem.directive.js',
-        './shared/scheduleItem.template.html',
+        './shared/scheduleList.directive.js',
+        './shared/scheduleList.template.html',
         './shared/filter.js'
     ],
     views: [
@@ -50,7 +50,7 @@ var paths = {
     maps: [],
     thirdpartycss: [
         './assets/css/style.css',
-        './assets/css/bootstrap.min.css'
+        './bower_components/bootstrap/dist/css/bootstrap.min.css'
     ],
     fonts: [
         './assets/css/fonts/glyphicons-halflings-regular.eot',
@@ -169,7 +169,7 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/startup.js',
         './build/shared/calendar.directive.js',
         './build/shared/alert.directive.js',
-        './build/shared/scheduleItem.directive.js',
+        './build/shared/scheduleList.directive.js',
         './build/shared/filters.js',
         './build/services/ScheduleService.js',
         './build/services/teamService.js',

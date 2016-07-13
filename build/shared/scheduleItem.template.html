@@ -1,8 +1,26 @@
-<div class="col-md-2" style="border:solid">
-    <h4>{{game.date|dayFormat}}</h4>
-    <h6>{{game.date|dateFormat}}</h6>
-</div>
-<div class="col-md-10" style="border:solid" ng-click="action(game)">
-    <h4>{{game.awayTeam}} AT {{game.homeTeam}}</h4>
-    <h6>{{game.time}} <span ng-click="goToMap()">{{game.homeStadiumName}}</span> {{game.homeTeamCity}} , {{game.homeTeamState}}</h6>
-</div>
+<!--table class="table table-hover">
+    <tr>
+        <div class="col-md-2" style="border:solid">
+            <h4>{{game.date|dayFormat}}</h4>
+            <h6>{{game.date|dateFormat}}</h6>
+        </div>
+        <div class="col-md-10" style="border:solid" ng-click="action(game)">
+            <h4>{{game.awayTeam}} AT {{game.homeTeam}}</h4>
+            <h6>{{game.time}} <span ng-click="goToMap()">{{game.homeStadiumName}}</span> {{game.homeTeamCity}} , {{game.homeTeamState}}</h6>
+        </div>
+    </tr>
+</table-->
+<table class="table table-hover">
+    <tbody>
+        <tr ng-repeat="game in games track by $index">
+            <td>
+                <h4>{{game.date|dayFormat}}</h4>
+                <h6>{{game.date|dateFormat}}</h6>
+            </td>
+            <td ng-click="action(game)">
+                <h4>{{game.awayTeam}} AT {{game.homeTeam}}</h4>
+                <h6>{{game.time}} <span ng-click="goToMap()">{{game.homeStadiumName}}</span> {{game.homeTeamCity}} , {{game.homeTeamState}}</h6>
+            </td>
+        </tr>
+    </tbody>
+</table>

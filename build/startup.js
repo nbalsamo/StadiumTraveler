@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    var app = angular.module("Stadium", ['ui.bootstrap', 'calendarDirective', 'ui.router', 'scheduleItemDirective']);
+    var app = angular.module("Stadium", ['ui.bootstrap', 'calendarDirective', 'ui.router', 'scheduleListDirective']);
 
     console.log('does this get called');
 

@@ -1,4 +1,4 @@
-var m = angular.module('scheduleItemDirective', []);
+var m = angular.module('scheduleListDirective', []);
 
 m.filter('dayFormat', function() {
     return function(input) {
@@ -12,12 +12,12 @@ m.filter('dateFormat', function() {
     }
 });
 
-m.directive('scheduleItem', function() {
+m.directive('scheduleList', function() {
     return {
         restrict: "E",
-        templateUrl: "./shared/scheduleItem.template.html",
+        templateUrl: "./shared/scheduleList.template.html",
         scope: {
-            game: '=',
+            games: '=',
             action: '='
         },
         link: function(scope) {

@@ -1,0 +1,14 @@
+<table class="table table-hover scheduleList">
+    <tbody>
+        <tr class="cursorPointer" ng-repeat="game in games track by $index">
+            <td>
+                <h4>{{game.date|dayFormat}}</h4>
+                <h6>{{game.date|dateFormat}}</h6>
+            </td>
+            <td ng-click="action(game)">
+                <h4>{{game.awayTeam}} AT {{game.homeTeam}}</h4>
+                <h6>{{game.time}} <span ng-click="goToMap()">{{game.homeStadiumName}}</span> {{game.homeTeamCity}} , {{game.homeTeamState}}</h6>
+            </td>
+        </tr>
+    </tbody>
+</table>
