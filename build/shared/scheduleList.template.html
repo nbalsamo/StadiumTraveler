@@ -7,7 +7,10 @@
             </td>
             <td ng-click="action(game)">
                 <h4>{{game.awayTeam}} AT {{game.homeTeam}}</h4>
-                <h6>{{game.time}} <span ng-click="goToMap()">{{game.homeStadiumName}}</span> {{game.homeTeamCity}} , {{game.homeTeamState}}</h6>
+                <h6>{{game.time}} <span ng-click="goToMap()">{{game.homeStadiumName}}</span> {{game.homeTeamCity}} , {{game.homeTeamState}} </h6>
+            </td>
+            <td ng-if="maxDist">
+                <h4 class="{{game.distance | distanceColor:maxDist}}">{{game.distance}} miles</h4>
             </td>
         </tr>
     </tbody>

@@ -50,7 +50,7 @@ var paths = {
     maps: [],
     thirdpartycss: [
         './assets/css/style.css',
-        './bower_components/bootstrap/dist/css/bootstrap.min.css'
+        './bower_components/bootstrap/dist/css/bootstrap.css'
     ],
     fonts: [
         './assets/css/fonts/glyphicons-halflings-regular.eot',
@@ -158,8 +158,9 @@ gulp.task('inject', ['build-css', 'copy'], function() {
         './build/assets/css/app.css',
         './build/assets/css/home.css',
         './build/assets/css/style.css',
-        './build/assets/css/bootstrap.min.css',
+        './build/assets/css/bootstrap.css',
         './build/assets/css/calendar.directive.css',
+        './build/assets/css/scheduleItem.directive.css',
         './build/scripts/angular.js',
         './build/scripts/angular-ui-router.js',
         './build/scripts/ui-bootstrap-tpls.js',
