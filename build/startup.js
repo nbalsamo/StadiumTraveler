@@ -4,8 +4,10 @@
 
     console.log('does this get called');
 
-    var baseAPIUrl = 'http://localhost:3000';
-    //var baseAPIUrl = 'https://stadiumtraveler-api.herokuapp.com'
+
+
+    var baseAPIUrl = process.env.baseAPIUrl || 'http://localhost:3000';
+
     app.constant("appSettings", {
         baseAPIUrl: baseAPIUrl
     });
