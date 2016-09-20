@@ -6,7 +6,7 @@
                     <form ng-submit="searchTeam()">
                         <h2 class="text-center title">Stadium Traveler</h2>
                         <p class="input-group">
-                            <input class="form-control" type="text" placeholder="Enter Team Name" ng-model="searchedTeam" uib-typeahead="team.teamName for team in teams | filter:$viewValue | limitTo:8" typeahead-editable="false" ng-required="true" />
+                            <input class="form-control" type="text" placeholder="Search a Team Name" ng-model="searchedTeam" uib-typeahead="team.teamName for team in teams | filter:$viewValue | limitTo:8" typeahead-editable="false" ng-required="true" />
                             <span class="input-group-btn ">
                             <button type="button" class="btn btn-default" ng-click="searchTeam()"><i class="glyphicon glyphicon-search "></i></button>
                     </span>

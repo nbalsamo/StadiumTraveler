@@ -9,7 +9,7 @@
             $scope.getSurrounding = function(game) {
                 var gameDate = new Date(game.date);
                 $state.go('root.surrounding', {
-                    team: teamID,
+                    team: game.homeTeamID,
                     date: gameDate.toISOString()
                 });
             }
